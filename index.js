@@ -11,12 +11,12 @@ const IPTV_STREAMS_URL = 'https://iptv-org.github.io/api/streams.json';
 const PORT = process.env.PORT || 3000;
 const FETCH_INTERVAL = parseInt(process.env.FETCH_INTERVAL) || 86400000; // Fetch interval in milliseconds, default 1 day
 const PROXY_URL = process.env.PROXY_URL || ''; // Proxy URL for verification
-const FETCH_TIMEOUT = parseInt(process.env.FETCH_TIMEOUT) || 10000; // Fetch timeout in milliseconds, default 10 seconds
+const FETCH_TIMEOUT = parseInt(process.env.FETCH_TIMEOUT) || 100000; // Fetch timeout in milliseconds, default 10 seconds
 
 // Configuration for channel filtering.
 const config = {
-    includeLanguages: process.env.INCLUDE_LANGUAGES ? process.env.INCLUDE_LANGUAGES.split(',') : [],
-    includeCountries: process.env.INCLUDE_COUNTRIES ? process.env.INCLUDE_COUNTRIES.split(',') : ['IR'],
+    includeLanguages: process.env.INCLUDE_LANGUAGES ? process.env.INCLUDE_LANGUAGES.split(',') : ['fars'],
+    includeCountries: process.env.INCLUDE_COUNTRIES ? process.env.INCLUDE_COUNTRIES.split(',') : ['IR','US','AE'],
     excludeLanguages: process.env.EXCLUDE_LANGUAGES ? process.env.EXCLUDE_LANGUAGES.split(',') : [],
     excludeCountries: process.env.EXCLUDE_COUNTRIES ? process.env.EXCLUDE_COUNTRIES.split(',') : [],
     excludeCategories: process.env.EXCLUDE_CATEGORIES ? process.env.EXCLUDE_CATEGORIES.split(',') : [],
@@ -72,7 +72,6 @@ const manifest = {
                     "sports",
                     "travel",
                     "weather",
-                    "xxx",
                     "auto"
                 ]
 
